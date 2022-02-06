@@ -45,10 +45,21 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <Element_NavBar ElementTitle="Home" ElementLink="#Home" />
-                <Element_NavBar ElementTitle="About" ElementLink="#About" />
-                <Element_NavBar ElementTitle="Roles" ElementLink="#Roles" />
-                <Element_NavBar ElementTitle={loginMSG} ElementLink="#Login" />
+                <Element_NavBar
+                    ElementActive="true"
+                    ElementTitle="Home"
+                    ElementLink="#Home"
+                />
+                <Element_NavBar
+                    ElementActive="false"
+                    ElementTitle="About"
+                    ElementLink="#About"
+                />
+                <Element_NavBar
+                    ElementActive="false"
+                    ElementTitle={loginMSG}
+                    ElementLink="#Login"
+                />
             </ul>
         </div>
     </div>
