@@ -2,7 +2,6 @@
     import { activePage } from "../../stores";
     export let ElementTitle = "";
     export let ElementLink = "";
-    export let ElementActive = "false";
 
     let ElementTitleLowercase = ElementTitle.toLowerCase();
 
@@ -11,23 +10,24 @@
         activePage.set(ElementTitleLowercase);
         console.log($activePage);
     }
+
+    let extraClasses = "";
+
+    $: $activePage, decideExtraClasses();
+    function decideExtraClasses() {
+        if ($activePage == ElementTitleLowercase) {
+            extraClasses = "active";
+        } else {
+            extraClasses = "";
+        }
+    }
 </script>
 
-{#if ElementActive == "true"}
-    <li class="nav-item">
-        <a
-            class="nav-link active"
-            aria-current="page"
-            href={ElementLink}
-            on:click={clicked}>{ElementTitle}</a
-        >
-    </li>
-{:else}
-    <li class="nav-item">
-        <a
-            class="nav-link"
-            aria-current="page"
-            href={ElementLink}
-            on:click={clicked}>{ElementTitle}</a
-        >
-    </li>{/if}
+<li class="nav-item">
+    <a
+        class="nav-link {extraClasses}"
+        aria-current="page"
+        href={ElementLink}
+        on:click={clicked}>{ElementTitle}</a
+    >
+</li>

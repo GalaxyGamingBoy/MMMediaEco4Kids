@@ -5,6 +5,7 @@
     import About from "./components/About.svelte";
     import Login from "./components/Login.svelte";
     import Admin from "./components/Admin.svelte";
+    import Roles from "./components/Roles.svelte";
 
     import { activePage, isLoggedIn } from "./stores";
 
@@ -36,6 +37,8 @@
         {:else}
             <Login />
         {/if}
+    {:else if $activePage == "roles"}
+        <Roles />
     {/if}
     <Footer />
 </main>
